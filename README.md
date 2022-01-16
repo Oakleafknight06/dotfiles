@@ -1,3 +1,2 @@
 # dotfiles
-My personal dotfiles repo. Houses config files / themes for my Sway desktop
-Will likely contain code from other repos, I will do my best to provide credit where do and make sure all is liscence compatible
+My personal dotfiles repo. Houses config files and themes for my various desktops / window managers. This repo could likely contain code from other repos, I will do my best to provide credit where due and make sure all is liscence compatible. Later I will add some instructions (Mostly for future me) of how I set things up, cheat sheets for keybindings, and anything else I think would be useful. This is all MIT licensed so feel free to take anything and incorperate it into your own projects. (A little thank you would be nice if you do though)
