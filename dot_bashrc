@@ -23,6 +23,9 @@ fi
 
 unset rc
 
+# Make Homebrew (package manager) work
+eval "$(/var/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
 # Starship prompt
 eval "$(starship init bash)"
 
@@ -30,8 +33,9 @@ set -o vi
 
 # Aliases
 alias swaycfg="vim ~/.config/sway/config"
-alias config='/usr/bin/git --git-dir=/home/darin/.cfg/ --work-tree=/home/darin'
 alias mcstart="cd ~/Minecraft/ArboretumServerCurrent/ && ./start.sh"
+# Ensures wget hsts file in proper xdg directory
+alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
 
 # Misc Environment Variables
 EDITOR=nvim
@@ -54,10 +58,7 @@ export ANDROID_HOME="$XDG_DATA_HOME"/android
 export HISTFILE="${XDG_STATE_HOME}"/bash/history
 
 # gnupg
-# export GNUPGHOME="$XDG_DATA_HOME"
-# Note: from the archwiki:_
-# If you use non-default GnuPG Home directory, you will need to edit all socket files to use the values of gpgconf --list-dirs.
-# If you set your SSH_AUTH_SOCK manually, keep in mind that your socket location may be different if you are using a custom GNUPGHOME
+export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 
 # gradle
 export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
@@ -87,6 +88,9 @@ export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
 
 # npm
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
+
+# libdvdcss
+export DVDCSS_CACHE="$XDG_DATA_HOME"/dvdcss
 
 # Stuff for building LineageOS Android
 export USE_CCACHE=1

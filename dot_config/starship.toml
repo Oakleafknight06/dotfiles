@@ -30,8 +30,8 @@ style = "pink"
 
 [character]
 success_symbol = "[ 󰁕](teal)"
-error_symbol = "[  󰁕](red)"
-vimcmd_symbol = "[  󰁕](purple)"
+error_symbol = "[ 󰁕](red)"
+vimcmd_symbol = "[ 󰁕](purple)"
 
 
 # Defining the color palette
