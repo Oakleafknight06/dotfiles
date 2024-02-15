@@ -38,13 +38,12 @@ error_symbol = "[>](red5)"
 vimcmd_symbol = "[>](purple5)"
 
 [git_branch]
-format = "[$branch]($style)"
-style = "pink"
-symbol = ""
+format = "[ ]($style)[$branch]($style)"
+style = "light3"
 
 [git_status]
-format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
-style = "pink"
+format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](red5) ($ahead_behind$stashed)]($style)"
+style = "yellow5"
 conflicted = "​"
 untracked = "​"
 modified = "​"
@@ -55,7 +54,7 @@ stashed = "≡"
 
 [git_state]
 format = '\([$state( $progress_current/$progress_total)]($style)\) '
-style = "pink"
+style = "red5"
 
 # Defining the color palette
 [palettes.catppuccin_macchiato]
