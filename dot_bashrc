@@ -24,7 +24,7 @@ fi
 unset rc
 
 # Make Homebrew (package manager) work
-eval "$(/var/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# eval "$(/var/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # Starship prompt
 eval "$(starship init bash)"
