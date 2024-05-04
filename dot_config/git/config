@@ -7,3 +7,5 @@
 [user]
 	email = 65838823+Oakleafknight06@users.noreply.github.com
 	name = Oakleafknight06
+[init]
+  defaultBranch = main
