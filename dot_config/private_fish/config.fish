@@ -4,7 +4,7 @@ if status is-interactive
   starship init fish | source
   atuin init fish | source
   abbr -a -- cd z
-  abbr -a -- ls lsd
+  abbr -a -- ls eza
   abbr -a -- vim nvim
   abbr -a -- cat bat
 end
