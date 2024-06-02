@@ -1,0 +1,13 @@
+[Desktop Entry]
+X-AppImage-Arch=x86_64
+X-AppImage-Version=latest
+X-AppImage-Name=LocalSend
+Name=LocalSend
+Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=localsend --file-forwarding org.localsend.localsend_app autostart @u %U @@
+Icon=org.localsend.localsend_app
+Type=Application
+Terminal=false
+Categories=Utility;
+Comment=
+X-Desktop-File-Install-Version=0.27
+X-Flatpak=org.localsend.localsend_app
