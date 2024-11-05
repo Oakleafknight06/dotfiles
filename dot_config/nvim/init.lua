@@ -30,6 +30,10 @@ require("lazy").setup({
       lazy = false,
       priority = 1000,
       opts = {},
+    },
+    {
+    'numToStr/Comment.nvim',
+    opts = {}
     }
   },
   -- Configure any other settings here. See the documentation for more details.
@@ -42,3 +46,5 @@ require("lazy").setup({
 -- Basic Settings
 vim.opt.number = true
 vim.cmd[[colorscheme tokyonight]]
+-- For comment plugin
+require('Comment').setup()
