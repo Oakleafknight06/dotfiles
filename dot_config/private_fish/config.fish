@@ -6,4 +6,6 @@ if status is-interactive
   abbr -a -- ls eza
   abbr -a -- vim nvim
   abbr -a -- cat bat
+  # 'td' for TailDrop
+  abbr -a -- td 'tailscale file cp'
 end
