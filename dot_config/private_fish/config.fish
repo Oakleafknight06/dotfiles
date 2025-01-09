@@ -8,4 +8,5 @@ if status is-interactive
   abbr -a -- cat bat
   # 'td' for TailDrop
   abbr -a -- td 'tailscale file cp'
+  abbr -a -- tg 'tailscale file get ~/Downloads'
 end
