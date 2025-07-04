@@ -58,5 +58,7 @@ require("lazy").setup({
 
 -- Basic Settings
 vim.opt.number = true
+vim.opt.spell = true
+vim.opt.spell.spelllang = 'en_us'
 -- For comment plugin
 require('Comment').setup()

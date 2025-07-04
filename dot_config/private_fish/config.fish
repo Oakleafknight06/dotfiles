@@ -6,7 +6,7 @@ if status is-interactive
   atuin init fish | source
   # better ls and better ls with options
   abbr -a -- ls 'eza -a'
-  abbr -a -- ll 'eza -lah --group-directories-first'
+  # abbr -a -- ll 'eza -lah --group-directories-first'
   # Regular utility switiching
   abbr -a -- cd z
   abbr -a -- vim nvim
