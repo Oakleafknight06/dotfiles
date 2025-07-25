@@ -16,8 +16,8 @@ set $up k
 set $right l
 
 # Preferred applications
-set $term flatpak run com.raggesilver.BlackBox
-set $browser flatpak run org.mozilla.firefox
+set $term ptyxis --new-window
+set $browser trivalent
 set $file-manager thunar
 
 # Your preferred application launcher
