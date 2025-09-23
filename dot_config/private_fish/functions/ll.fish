@@ -1,3 +1,3 @@
 function ll
-	eza -lah --group-directories-first
+	eza -lah --group-directories-first $argv
 end

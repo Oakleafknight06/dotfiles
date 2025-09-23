@@ -4,10 +4,7 @@ if status is-interactive
   # Initializing better cd and better shell history
   zoxide init fish | source
   atuin init fish | source
-  # better ls and better ls with options
-  abbr -a -- ls 'eza -a'
-  # abbr -a -- ll 'eza -lah --group-directories-first'
-  # Regular utility switiching
+  # Replacements for common cli utilities 
   abbr -a -- cd z
   abbr -a -- vim nvim
   abbr -a -- cat bat
@@ -16,4 +13,6 @@ if status is-interactive
   # 'td' for TailDrop and 'tg' for TailGet
   abbr -a -- td 'tailscale file cp'
   abbr -a -- tg 'tailscale file get ~/Downloads'
+  fish_vi_key_bindings
+  set -gx EDITOR nvim
 end
