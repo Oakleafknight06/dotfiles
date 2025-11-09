@@ -2,11 +2,9 @@
 
 # Read `man 5 sway` for a complete reference.
 
-#General layout of the config is vaiable defining - configuration - keybinds
-
 ### Variables
 
-# Use Mod1 for Alt, Mod2 for numlock, Mod4 for logo key, Mod5 for something that isn't on modern keyboards. Mod3 and all other numbers do not exist.
+# Use Mod1 for Alt, Mod2 for numlock, Mod4 for logo key
 set $mod Mod4
 
 # Home row direction keys, like vim
@@ -16,58 +14,20 @@ set $up k
 set $right l
 
 # Preferred applications
-set $term ptyxis --new-window
+set $term foot
 set $browser trivalent
 set $file-manager thunar
 
 # Your preferred application launcher
-set $menu fuzzel --icon-theme=Papirus-Dark --background=242424ff --text-color=ffffffff --border-color=242424ff --selection-text-color=ffffffff --selection-color=3584e4ff --prompt="/ " 
+set $rofi_cmd rofi \
+	-terminal '$term'
+set $menu $rofi_cmd -show combi -combi-modes drun#run -modes combi
 
 # Keyboard configuration
 input "type:keyboard" {
     xkb_options caps:super
 #    xkb_options compose:ralt
 }
-
-### Things to execute
-exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
-exec_always /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec steam -silent
-
-## Themeing
-seat seat0 xcursor_theme "Breeze_Snow"
-#GTK Configuration
-
-set $gnome-schema org.gnome.desktop.interface
-
-exec_always {
-   gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark'
-   gsettings set $gnome-schema icon-theme 'Papirus-Dark'
-   gsettings set $gnome-schema cursor-theme 'Breeze_Snow'
-   gsettings set $gnome-schema font-name 'Cantarell Regular'
-   #Gets rid of window decorations
-   gsettings set org.gnome.desktop.wm.preferences button-layout ':'
-}
-
-### Output configuration
-
-# You can get the names of your outputs by running: swaymsg -t get_outputs
-
-output DP-3 {
-    pos 0 0 
-    res 1920x1080 
-    bg ~/Pictures/Wallpapers/Spiderverse.jpg fill
-}
-
-output HDMI-A-4 {
-    pos 1920 0 
-    res 1920x1080 
-    transform 270
-    bg ~/Pictures/Wallpapers/wallpaper_minecraft_mineshaft_1080x1920.png fill
-}
-
-focus output DP-3
-
 
 #Window Decor stuff
 default_border none
@@ -77,16 +37,11 @@ gaps inner 1
 
 ### Idle configuration
 exec swayidle -w \
-    timeout 200 'swaylock --daemonize --image ~/Pictures/Wallpapers/fireball-wallpaper.jpg'  \
+    timeout 200 'swaylock --daemonize --image ~/Pictures/Wallpapers/violet.jpg'  \
     timeout 200 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-    before-sleep 'swaylock --daemonize --image ~/Pictures/Wallpapers/fireball-wallpaper.jpg'
+    before-sleep 'swaylock --daemonize --image ~/Pictures/Wallpapers/violet.jpg'
 
-set $lock swaylock --daemonize --image ~/Pictures/Wallpapers/fireball-wallpaper.jpg 
-
-#exec_always nwg-panel
-bar {
-    swaybar_command waybar
-}
+set $lock swaylock --daemonize --image ~/Pictures/Wallpapers/violet.jpg
 
 ### Key bindings
     # Start a terminal
@@ -98,16 +53,15 @@ bar {
     bindsym $mod+e exec $file-manager
     bindsym $mod+m exec flatpak run com.spotify.Client
 
-set $WOBSOCK /tmp/wobpipe
-exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1| awk '{print substr($5, 1, length($5)-1)}' > $WOBSOCK
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1 | awk '{print substr($5, 1, length($5)-1)}' > $WOBSOCK
-
-    bindsym --locked XF86AudioPlay exec playerctl play-pause
+# set $WOBSOCK /tmp/wobpipe
+# exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+# bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1| awk '{print substr($5, 1, length($5)-1)}' > $WOBSOCK
+# bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1 | awk '{print substr($5, 1, length($5)-1)}' > $WOBSOCK
+#    bindsym --locked XF86AudioPlay exec playerctl play-pause
 #    bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 #    bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
-    bindsym --locked XF86AudioNext exec playerctl next
-    bindsym --locked XF86AudioPrev exec playerctl previous
+#    bindsym --locked XF86AudioNext exec playerctl next
+#    bindsym --locked XF86AudioPrev exec playerctl previous
 
 
 
@@ -170,18 +124,6 @@ bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5% && pa
     bindsym $mod+alt+0 move container to workspace number 10
     # Note: workspaces can have any name, not just numbers.
     # If using a name, omit 'number'.
-
-    # Workspaces 1-5 on left monitor, 6-10 on right
-    workspace 1 output DP-3
-    workspace 2 output DP-3
-    workspace 3 output DP-3
-    workspace 4 output DP-3
-    workspace 5 output DP-3
-    workspace 6 output HDMI-A-4
-    workspace 7 output HDMI-A-4
-    workspace 8 output HDMI-A-4
-    workspace 9 output HDMI-A-4
-    workspace 10 output HDMI-A-4
 
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
@@ -250,4 +192,4 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-include /etc/sway/config.d/*
+include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "/etc/sway/config.d/*.conf" "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/*.conf")'
