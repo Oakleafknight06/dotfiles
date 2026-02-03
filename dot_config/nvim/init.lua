@@ -26,27 +26,24 @@ require("lazy").setup({
   spec = {
     -- add your plugins here
     {
-      "folke/tokyonight.nvim",
-      lazy = false,
-      priority = 1000,
-      opts = {},
+	    "Mofiqul/adwaita.nvim",
+	    lazy = false,
+	    priority = 1000,
+	    
+	    -- configure and set on startup
+	    config = function()
+		vim.g.adwaita_darker = true             -- for darker version
+		vim.g.adwaita_disable_cursorline = true -- to disable cursorline
+		vim.g.adwaita_transparent = true        -- makes the background transparent
+		vim.cmd('colorscheme adwaita')
+	    end
     },
     {
-    "Mofiqul/adwaita.nvim",
-    lazy = false,
-    priority = 1000,
-    
-    -- configure and set on startup
-    config = function()
-        vim.g.adwaita_darker = true             -- for darker version
-        vim.g.adwaita_disable_cursorline = true -- to disable cursorline
-        vim.g.adwaita_transparent = true        -- makes the background transparent
-        vim.cmd('colorscheme adwaita')
-    end
+	    'numToStr/Comment.nvim',
+	    opts = {}
     },
     {
-    'numToStr/Comment.nvim',
-    opts = {}
+	    "mattn/emmet-vim"
     }
   },
   -- Configure any other settings here. See the documentation for more details.
