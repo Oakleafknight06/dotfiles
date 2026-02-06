@@ -9,6 +9,11 @@
 	name = Oakleafknight06
 	signingkey = ~/.ssh/github-ssh-key.pub
 [init]
-  defaultBranch = main
+  	defaultBranch = main
 [gpg]
 	format = ssh
+[pull]
+	rebase = false
+[includeIf "gitdir:~/Development/Informatics/i211/"]
+	path = ./uni-config
+
